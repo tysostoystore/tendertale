@@ -35,5 +35,5 @@ COPY --from=builder /app/handlers ./handlers
 # Expose port
 EXPOSE 8080
 
-# Run the application
+# Run the application :)
 CMD ["./main"] 
