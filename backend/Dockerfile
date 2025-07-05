@@ -1,3 +1,5 @@
+RUN echo "Listing build context:" && ls -l
+
 FROM golang:1.24-alpine AS builder
 
 # Install git and ca-certificates
