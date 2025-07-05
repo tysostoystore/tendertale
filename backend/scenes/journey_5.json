@@ -1,0 +1,13 @@
+{
+    "id": "journey_5",
+    "background": "assets/bg_street_5.png",
+    "characters": [],
+  "dialogue": [
+    { "speaker": "", "text": "(Вот и он... Вокзал.)" },
+    { "speaker": "", "text": "(И куда все эти люди спешат...)" },
+    { "speaker": "", "text": "(Неужели им дома так плохо?)" }
+  ],
+  "choices": [
+    { "text": "Пойти дальше", "next_scene": "scene_5" }
+  ]
+}

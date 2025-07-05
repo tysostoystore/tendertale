@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visual Novel TWA</title>
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <!-- Message Display Area -->
+    <div id="message-display" style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); background-color: rgba(0,0,0,0.7); color: white; padding: 10px 20px; border-radius: 5px; z-index: 1000; display: none;">
+    </div>
+
+    <!-- Add the audio element here -->
+    <audio id="background-music" loop>
+      <source src="assets/music/2am.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+    <!-- Removed music-controls div from here -->
+
+    <!-- Remember to replace 'your_music_file.mp3' with the actual name of your file -->
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

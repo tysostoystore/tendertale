@@ -1,0 +1,19 @@
+{
+    "id": "scene_1",
+    "background": "assets/bg_alice_room.png",
+    "characters": [
+      { "name": "Алиса", "sprite": "alice_sad.png", "position": "left" }
+    ],
+    "dialogue": [
+      { "speaker": "Алиса", "text": "Ну наконец-то... Измучилась тебя ждать!" },
+      { "speaker": "Алиса", "text": "Поезд через 20 минут. Опоздаем же!" },
+      { "command": "change_sprite", "character": "Алиса", "sprite": "sad.png" },
+      { "speaker": "", "text": "(Алиса выглядит очень недовольной. Кажется, ей совсем не хочется ехать...)" },
+      { "speaker": "Алиса", "text": "Почему мы вообще должны ехать? Там же будет так ску-у-учно!" }
+    ],
+    "choices": [
+      { "text": "Хватит ныть, каникулы же!", "next_scene": "scene_2" },
+      { "text": "Да ладно, будет весело! (Наверное...)", "next_scene": "scene_3" },
+      { "text": "Понимаю... Мне тоже не особо хочется.", "next_scene": "scene_4" }
+    ]
+  }

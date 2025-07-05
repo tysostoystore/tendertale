@@ -1,0 +1,361 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: #000;
+  color: #fff;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  box-sizing: border-box;
+  padding: 10px;
+  z-index: 0;
+
+  /* Add transition for opacity */
+  opacity: 1; /* Start fully visible */
+  transition: opacity 0.5s ease-in-out; /* Adjust duration and timing function as needed */
+}
+
+#app.fade-out {
+  opacity: 0; /* Fade to invisible */
+}
+
+#app h1, #app p:not(#dialogue p, #choices button), #app #characters {
+  display: none;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.vanilla:hover {
+  filter: drop-shadow(0 0 2em #f7df1eaa);
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+#dialogue {
+  width: 95%;
+  max-width: 600px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  text-align: left;
+  position: relative;
+  z-index: 2;
+}
+
+#dialogue-text {
+  min-height: 3em;
+  color: #fff;
+  font-size: 1em;
+  line-height: 1.5;
+}
+
+#dialogue-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  cursor: pointer;
+}
+
+#dialogue h2 {
+  display: none;
+  margin: 0 0 10px 0;
+  color: #ccc;
+}
+
+#dialogue p {
+  margin: 5px 0;
+  line-height: 1.5;
+  color: #fff;
+}
+
+#dialogue p strong {
+  color: #ffcc00;
+}
+
+#dialogue strong {
+  color: #ffcc00; /* Apply color directly to strong tags within dialogue */
+}
+
+/* Choices Area Styling */
+#choices-container {
+  width: 95%;
+  max-width: 600px;
+  margin-bottom: 20px;
+  box-sizing: border-box;
+  display: flex; /* Keep display flex, but initially hidden by JS */
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  z-index: 2;
+}
+
+#choices-container h2 { /* Hide the H2 inside the new choices container */
+    display: none;
+}
+
+#choices-container button {
+  width: 100%;
+  padding: 15px 10px;
+  background-color: rgba(50, 50, 50, 0.8);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+#choices-container button:hover {
+  background-color: rgba(80, 80, 80, 0.9);
+}
+
+#load-game-btn, #start-new-game-btn {
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: rgba(30, 30, 30, 0.8);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease;
+}
+
+#load-game-btn:hover, #start-new-game-btn:hover {
+  background-color: rgba(50, 50, 50, 0.9);
+}
+
+/* Menu Toggle Button */
+#menu-toggle-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    padding: 10px 15px;
+    background-color: rgba(30, 30, 30, 0.8);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+#menu-toggle-btn:hover {
+    background-color: rgba(50, 50, 50, 0.9);
+}
+
+/* Game Menu Container */
+#game-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.95);
+    color: #fff;
+    z-index: 9;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+}
+
+#game-menu.visible {
+    transform: translateX(0);
+}
+
+#game-menu h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+#game-menu button {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 15px 10px;
+    background-color: rgba(50, 50, 50, 0.8);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+#game-menu button:hover {
+     background-color: rgba(80, 80, 80, 0.9);
+}
+
+/* Container for character sprites */
+#characters-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* General Character Sprite Styling */
+.character-sprite {
+    position: absolute;
+    bottom: 0; /* Align sprites to the bottom of their container */
+    max-height: 90vh; /* Example: max height is 90% of viewport height */
+    height: auto; /* Maintain aspect ratio */
+    width: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the entire sprite is visible without stretching */
+    pointer-events: none; /* Allow clicks to pass through */
+    /* Add transition for movement and opacity */
+    transition: all 0.7s ease-in-out; /* Increase duration for slide effect */
+
+    /* Initial state: slightly off-screen */
+     transform: translateY(20px); /* Start slightly below final position */
+    opacity: 0; /* Start invisible */
+}
+
+.character-sprite.visible {
+     transform: translateY(0); /* Slide up to final position */
+     opacity: 1; /* Fade in */
+}
+
+/* Positioning Classes - slight adjustments if needed based on sprite size */
+.character-left {
+    left: 20%; /* Start further left, off-screen */
+    /* Combine positioning transform with entry/exit transform if needed */
+     transform: translateX(0) translateY(20px); /* Start left and slightly down */
+}
+
+.character-left.visible {
+     transform: translateX(0) translateY(0); /* Slide to final left position */
+}
+
+.character-right {
+    right: -20%; /* Start further right, off-screen */
+     transform: translateX(0) translateY(20px); /* Start right and slightly down */
+}
+
+.character-right.visible {
+     transform: translateX(0) translateY(0); /* Slide to final right position */
+}
+
+.character-center {
+    left: 0%;
+     /* Adjust initial position relative to centered state */
+    transform: translateX(0) translateY(20px); /* Start centered and slightly down */
+}
+
+.character-center.visible {
+    transform: translateX(0) translateY(0); /* Slide up to final centered position */
+}
+
+/* Optional: Adjust for different screen sizes */
+@media (min-width: 768px) {
+    .character-sprite {
+        max-height: 95vh; /* Slightly larger max height on tablets/desktops */
+    }
+     .character-left {
+         left: 8%; /* Adjust position on larger screens */
+     }
+     .character-right {
+         right: -8%; /* Adjust position on larger screens */
+     }
+}

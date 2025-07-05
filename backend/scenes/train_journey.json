@@ -1,0 +1,48 @@
+{
+    "id": "train_journey",
+    "background": "bg_train_interior.png",
+    "characters": [
+        {
+            "name": "Алиса",
+            "sprite": "alice_neutral.png",
+            "position": "left"
+        },
+        {
+            "name": "Эмили",
+            "sprite": "emily_happy.png",
+            "position": "right"
+        }
+    ],
+    "dialogue": [
+        {
+            "speaker": "Алиса",
+            "text": "Уютно в вагоне.. круче, чем на перроне..."
+        },
+        {
+            "speaker": "Я",
+            "text": "Ага"
+        },
+        {
+            "speaker": null,
+            "text": "Поезд набирал скорость, унося их прочь от городской суеты. За окном мелькали живописные пейзажи."
+        },
+        {
+            "speaker": "Алиса",
+            "text": "Красиво конечно... но как-то.. страшно что-ли. И уезжать не хочется.."
+        },
+        {
+            "speaker": "Я",
+            "text": "Потом скучать будешь"
+        },
+        {
+            "speaker": null,
+            "text": "Девочки болтали всю дорогу, предвкушая предстоящий отдых. Время летело незаметно."
+        }
+    ],
+    "choices": [
+        {
+            "text": "Прибыть на дачу",
+            "next_scene": "dacha_arrival"
+        }
+    ]
+} 

@@ -1,0 +1,16 @@
+{
+    "id": "scene_2",
+    "background": "assets/bg_alice_room.png",
+    "characters": [
+      { "name": "Алиса", "sprite": "alice_sad.png", "position": "left" }
+    ],
+    "dialogue": [
+      { "speaker": "Я", "text": "А чего ты ожидала? Лето у бабушки, на природе!" },
+      { "speaker": "Алиса", "text": "Лес, комары, никаких друзей... Супер веселье!" },
+       { "speaker": "Я", "text": "Думаешь, мне самой в городе не хотелось остаться?" },
+       { "speaker": "", "text": "(Вздыхаю. Придется терпеть.)" }
+    ],
+    "choices": [
+      { "text": "Собирайся, выходим.", "next_scene": "journey_1" }
+    ]
+  }
