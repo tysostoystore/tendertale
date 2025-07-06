@@ -61,8 +61,7 @@ func (tw *TelegramWebApp) handleCommand(message *tgbotapi.Message) {
 
 	switch text {
 	case "/start":
-		tw.sendWelcomeMessage(chatID)
-		tw.sendWebAppButton(chatID)
+		tw.sendWelcomePhotoWithButton(chatID)
 	case "/help":
 		tw.sendHelpMessage(chatID)
 	default:
@@ -70,14 +69,40 @@ func (tw *TelegramWebApp) handleCommand(message *tgbotapi.Message) {
 	}
 }
 
-func (tw *TelegramWebApp) sendWelcomeMessage(chatID int64) {
-	welcomeText := `🎮 Welcome to Tendertale Visual Novel!
+func (tw *TelegramWebApp) sendWelcomePhotoWithButton(chatID int64) {
+	// Use a public URL for the image (recommended for Railway)
+	photoURL := "https://tendertale.vercel.app/assets/logo.png" // Update if your path is different
 
-This is a Telegram Web App - a mini webapp that runs directly in Telegram.
+	caption := `🎮 Добро пожаловать в TenderTale Visual Novel!
 
-Click the button below to open the visual novel in Telegram!`
+Это Telegram Web App — мини-приложение, которое работает прямо в Telegram.
 
-	tw.sendMessage(chatID, welcomeText)
+Нажмите кнопку ниже, чтобы открыть визуальную новеллу!`
+
+	// Get frontend URL from environment or use default
+	frontendURL := tw.apiURL
+	if envURL := os.Getenv("FRONTEND_URL"); envURL != "" {
+		frontendURL = envURL
+	}
+
+	// Create inline keyboard with URL button (Russian text)
+	keyboard := tgbotapi.NewInlineKeyboardMarkup(
+		tgbotapi.NewInlineKeyboardRow(
+			tgbotapi.NewInlineKeyboardButtonURL(
+				"🎮 Открыть новеллу",
+				frontendURL,
+			),
+		),
+	)
+
+	photoMsg := tgbotapi.NewPhoto(chatID, tgbotapi.FileURL(photoURL))
+	photoMsg.Caption = caption
+	photoMsg.ParseMode = "Markdown"
+	photoMsg.ReplyMarkup = keyboard
+
+	if _, err := tw.bot.Send(photoMsg); err != nil {
+		fmt.Printf("Error sending welcome photo: %v\n", err)
+	}
 }
 
 func (tw *TelegramWebApp) sendHelpMessage(chatID int64) {
