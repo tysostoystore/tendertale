@@ -15,8 +15,8 @@ Your current `main.go` needs a small modification for Railway:
 config.AllowOrigins = []string{
     "http://localhost:5173",
     "http://192.168.10.8:5173",
-    "https://your-app-name.railway.app", // Add your Railway domain
-    "https://your-frontend-domain.vercel.app", // Add your frontend domain
+    "tendertale-production.up.railway.app", // Add your Railway domain
+    "https://tendertale.vercel.app", // Add your frontend domain
 }
 ```
 
