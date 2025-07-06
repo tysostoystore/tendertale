@@ -248,7 +248,7 @@ func main() {
 			return
 		}
 
-		webApp, err := NewTelegramWebApp(botToken, "http://localhost:8080")
+		webApp, err := NewTelegramWebApp(botToken, "https://tendertale.vercel.app")
 		if err != nil {
 			fmt.Printf("Error creating Telegram Web App bot: %v\n", err)
 			return

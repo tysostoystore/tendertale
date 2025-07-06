@@ -1,6 +1,8 @@
+const API_BASE_URL = 'https://tendertale-production.up.railway.app';
+
 export async function fetchScene(sceneId) {
   try {
-    const response = await fetch(`http://localhost:8080/api/scene/${sceneId}`);
+    const response = await fetch(`${API_BASE_URL}/api/scene/${sceneId}`);
 
     if (!response.ok) {
       const errorText = await response.text();
@@ -15,13 +17,13 @@ export async function fetchScene(sceneId) {
 
   } catch (error) {
     console.error('Error fetching scene:', error);
-    throw new Error(`Error connecting to backend! Details: ${error.message}. Please ensure your Go backend is running at http://localhost:8080.`);
+    throw new Error(`Error connecting to backend! Details: ${error.message}. Please ensure your Go backend is running at ${API_BASE_URL}.`);
   }
 }
 
 export async function saveGame(userID, currentSceneID) {
   try {
-    const response = await fetch(`http://localhost:8080/api/save/${userID}`, {
+    const response = await fetch(`${API_BASE_URL}/api/save/${userID}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -45,7 +47,7 @@ export async function saveGame(userID, currentSceneID) {
 
 export async function loadGame(userID) {
   try {
-    const response = await fetch(`http://localhost:8080/api/load/${userID}`);
+    const response = await fetch(`${API_BASE_URL}/api/load/${userID}`);
 
     if (response.ok) {
       const saveState = await response.json();
@@ -67,7 +69,7 @@ export async function loadGame(userID) {
 
 export async function deleteGame(userID) {
   try {
-    const response = await fetch(`http://localhost:8080/api/save/${userID}`, {
+    const response = await fetch(`${API_BASE_URL}/api/save/${userID}`, {
       method: 'DELETE',
     });
 
