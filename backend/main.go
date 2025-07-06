@@ -83,15 +83,17 @@ func main() {
 	// This allows requests from your frontend's origin
 	config := cors.DefaultConfig()
 
+	// Get frontend URL from environment variable or use default
+	frontendURL := os.Getenv("FRONTEND_URL")
+	if frontendURL == "" {
+		frontendURL = "https://tendertale.vercel.app"
+	}
+
 	// Get allowed origins from environment variable or use defaults
 	allowedOrigins := []string{
 		"http://localhost:5173",
 		"http://192.168.10.8:5173",
-	}
-
-	// Add production origins if set
-	if frontendUrl := os.Getenv("FRONTEND_URL"); frontendUrl != "" {
-		allowedOrigins = append(allowedOrigins, frontendUrl)
+		frontendURL,
 	}
 
 	// Add Vercel preview URLs (for development)
@@ -248,7 +250,7 @@ func main() {
 			return
 		}
 
-		webApp, err := NewTelegramWebApp(botToken, "https://tendertale.vercel.app")
+		webApp, err := NewTelegramWebApp(botToken, frontendURL)
 		if err != nil {
 			fmt.Printf("Error creating Telegram Web App bot: %v\n", err)
 			return
