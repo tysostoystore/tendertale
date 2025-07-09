@@ -310,6 +310,9 @@ button:focus-visible {
     /* Initial state: slightly off-screen */
      transform: translateY(20px); /* Start slightly below final position */
     opacity: 0; /* Start invisible */
+    
+    /* Debug: Add border to see if element exists */
+    border: 2px solid red;
 }
 
 .character-sprite.visible {
@@ -329,32 +332,16 @@ button:focus-visible {
 
 /* Positioning Classes - slight adjustments if needed based on sprite size */
 .character-left {
-    left: 20%; /* Start further left, off-screen */
-    /* Combine positioning transform with entry/exit transform if needed */
-     transform: translateX(0) translateY(20px); /* Start left and slightly down */
-}
-
-.character-left.visible {
-     transform: translateX(0) translateY(0); /* Slide to final left position */
+    left: 10%; /* Position on the left side */
 }
 
 .character-right {
-    right: -20%; /* Start further right, off-screen */
-     transform: translateX(0) translateY(20px); /* Start right and slightly down */
-}
-
-.character-right.visible {
-     transform: translateX(0) translateY(0); /* Slide to final right position */
+    right: 10%; /* Position on the right side */
 }
 
 .character-center {
-    left: 0%;
-     /* Adjust initial position relative to centered state */
-    transform: translateX(0) translateY(20px); /* Start centered and slightly down */
-}
-
-.character-center.visible {
-    transform: translateX(0) translateY(0); /* Slide up to final centered position */
+    left: 50%; /* Center the character */
+    transform: translateX(-50%); /* Center horizontally */
 }
 
 /* Optional: Adjust for different screen sizes */

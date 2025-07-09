@@ -311,6 +311,10 @@ export async function renderScene(scene, pushToHistory = true, { sceneHistory, h
             img.classList.add('visible');
             
             console.log(`Added character ${line.character.name} with sprite ${line.character.sprite}`);
+            console.log(`Element classes:`, img.classList.toString());
+            console.log(`Element position:`, img.offsetLeft, img.offsetTop);
+            console.log(`Element size:`, img.offsetWidth, img.offsetHeight);
+            
             // Add a brief pause after adding character
             await new Promise(resolve => setTimeout(resolve, 200));
         } else if (line.command === 'remove_character') {
