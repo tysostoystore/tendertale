@@ -6,11 +6,12 @@ type Choice struct {
 }
 
 type DialogueLine struct {
-	Speaker       string     `json:"speaker,omitempty"`
-	Text          string     `json:"text,omitempty"`
-	Command       string     `json:"command,omitempty"`
-	Character     *Character `json:"character,omitempty"`
-	CharacterName string     `json:"character_name,omitempty"`
+	Speaker       string      `json:"speaker,omitempty"`
+	Text          string      `json:"text,omitempty"`
+	Command       string      `json:"command,omitempty"`
+	Character     interface{} `json:"character,omitempty"`
+	CharacterName string      `json:"character_name,omitempty"`
+	Sprite        string      `json:"sprite,omitempty"`
 }
 
 type Character struct {
