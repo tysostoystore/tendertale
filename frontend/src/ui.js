@@ -280,6 +280,8 @@ export async function renderScene(scene, pushToHistory = true, { sceneHistory, h
 
     for (const line of scene.dialogue) {
         console.log(`Processing line:`, line);
+        console.log(`Line has command:`, !!line.command);
+        console.log(`Line command:`, line.command);
         
         // Check if the current line is a command
         if (line.command === 'change_sprite') {

@@ -1,0 +1,43 @@
+{
+    "id": "test_men",
+    "background": "backgrounds/bg_station.png",
+    "characters": [
+      {
+        "name": "Алиса",
+        "sprite": "sprites/alice_neutral.png",
+        "position": "right"
+      }
+    ],
+    "dialogue": [
+      {
+        "speaker": "",
+        "text": "Тест: проверяем команду add_character"
+      },
+      {
+        "command": "add_character",
+        "character": {
+          "name": "Мужчины",
+          "sprite": "sprites/men.png",
+          "position": "left"
+        }
+      },
+      {
+        "speaker": "",
+        "text": "Мужчины должны появиться слева"
+      },
+      {
+        "command": "remove_character",
+        "character_name": "Мужчины"
+      },
+      {
+        "speaker": "",
+        "text": "Мужчины должны исчезнуть"
+      }
+    ],
+    "choices": [
+      {
+        "text": "Вернуться к началу",
+        "next_scene": "scene_1"
+      }
+    ]
+  } 
