@@ -317,6 +317,16 @@ button:focus-visible {
      opacity: 1; /* Fade in */
 }
 
+.fade-in-char {
+  opacity: 0;
+  animation: fadeInChar 0.15s forwards;
+}
+
+@keyframes fadeInChar {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 /* Positioning Classes - slight adjustments if needed based on sprite size */
 .character-left {
     left: 20%; /* Start further left, off-screen */
