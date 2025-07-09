@@ -296,7 +296,21 @@ export async function renderScene(scene, pushToHistory = true, { sceneHistory, h
             img.classList.add('character-sprite');
             img.classList.add(`character-${line.character.position}`);
             img.dataset.characterName = line.character.name;
+            
+            // Add error handling for image loading
+            img.onerror = () => {
+                console.error(`Failed to load sprite: assets/${line.character.sprite}`);
+            };
+            img.onload = () => {
+                console.log(`Successfully loaded sprite: assets/${line.character.sprite}`);
+            };
+            
             charactersContainer.appendChild(img);
+            
+            // Add visible class immediately to show the character
+            img.classList.add('visible');
+            
+            console.log(`Added character ${line.character.name} with sprite ${line.character.sprite}`);
             // Add a brief pause after adding character
             await new Promise(resolve => setTimeout(resolve, 200));
         } else if (line.command === 'remove_character') {
