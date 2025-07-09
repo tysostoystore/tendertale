@@ -22,8 +22,13 @@ type ChoiceRequest struct {
 }
 
 func loadScene(sceneID string) (*models.Scene, error) {
-	filePath := filepath.Join("scenes", sceneID+".json") // Use filepath.Join for safety
-	file, err := os.Open(filePath)
+	// Ищем файл по всем подпапкам scenes/
+	pattern := filepath.Join("scenes", "*", sceneID+".json")
+	matches, err := filepath.Glob(pattern)
+	if err != nil || len(matches) == 0 {
+		return nil, fmt.Errorf("scene file not found: %w", err)
+	}
+	file, err := os.Open(matches[0])
 	if err != nil {
 		return nil, fmt.Errorf("scene file not found: %w", err)
 	}
