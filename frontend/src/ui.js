@@ -288,6 +288,27 @@ export async function renderScene(scene, pushToHistory = true, { sceneHistory, h
             } else {
                 console.warn(`Character element not found for: ${line.character}`);
             }
+        } else if (line.command === 'add_character') {
+            console.log(`Command: Add character ${line.character.name}`);
+            const img = document.createElement('img');
+            img.src = `assets/${line.character.sprite}`;
+            img.alt = line.character.name;
+            img.classList.add('character-sprite');
+            img.classList.add(`character-${line.character.position}`);
+            img.dataset.characterName = line.character.name;
+            charactersContainer.appendChild(img);
+            // Add a brief pause after adding character
+            await new Promise(resolve => setTimeout(resolve, 200));
+        } else if (line.command === 'remove_character') {
+            console.log(`Command: Remove character ${line.character_name}`);
+            const characterElement = charactersContainer.querySelector(`[data-character-name="${line.character_name}"]`);
+            if (characterElement) {
+                characterElement.remove();
+                // Add a brief pause after removing character
+                await new Promise(resolve => setTimeout(resolve, 200));
+            } else {
+                console.warn(`Character element not found for: ${line.character_name}`);
+            }
         } else if (line.text) {
             // Цветное имя персонажа
             let speakerHtml = '';

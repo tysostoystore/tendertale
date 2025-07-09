@@ -41,7 +41,7 @@
     "choices": [
       {
         "text": "Прибыть на дачу",
-        "next_scene": "dacha_arrival"
+        "next_scene": "dacha_arrival_with_men"
       }
     ]
   }

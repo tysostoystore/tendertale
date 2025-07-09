@@ -1,11 +1,11 @@
 {
-    "id": "dacha_arrival",
-    "background": "bg_dacha_station.png",
+    "id": "dacha_arrival_with_men",
+    "background": "backgrounds/bg_dacha_station.png",
     "characters": [
       {
         "name": "Алиса",
         "sprite": "sprites/alice_neutral.png",
-        "position": "left"
+        "position": "right"
       }
     ],
     "dialogue": [
@@ -22,8 +22,16 @@
         "text": "Ого... прикольно тут. Такое... деревенское."  
       },
       {
+        "command": "add_character",
+        "character": {
+          "name": "Мужчины",
+          "sprite": "sprites/men.png",
+          "position": "left"
+        }
+      },
+      {
         "speaker": "", 
-        "text": "(На скамейке у входа в вокзал сидят трое мужиков. Жареные лица, майки с пятнами, сигареты между пальцами. Глаза — как щели в заборе. Смотрят на нас, не мигая.)"
+        "text": "(Тут на перроне появляется трое мужиков. Жареные лица, майки с пятнами, сигареты между пальцами. Глаза — как щели в заборе. Смотрят на нас, не мигая.)"
       },
       {
         "speaker": "", 
@@ -46,6 +54,10 @@
         "text": "Потом."
       },
       {
+        "command": "remove_character",
+        "character_name": "Мужчины"
+      },
+      {
         "speaker": "", 
         "text": "(Мы переходим на другую сторону дороги. Асфальт плавится под ногами. Где-то вдалеке, за забором — бабушкин дом. Почти как остров в этом заспиртованном мире.)"
       }
@@ -56,5 +68,4 @@
         "next_scene": "road_to_dacha"
       }
     ]
-  }
-  
+  } 
