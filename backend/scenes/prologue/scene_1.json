@@ -1,19 +1,19 @@
 {
-    "id": "scene_1",
-    "background": "backgrounds/bg_alice_room.png",
-    "characters": [
-      { "name": "Алиса", "sprite": "sprites/alice_neutral.png", "position": "left" }
-    ],
-    "dialogue": [
-      { "speaker": "Алиса", "text": "Ну наконец-то... Измучилась тебя ждать!" },
-      { "speaker": "Алиса", "text": "Поезд через 20 минут. Опоздаем же!" },
-      { "command": "change_sprite", "character": "Алиса", "sprite": "sad.png" },
-      { "speaker": "", "text": "(Алиса выглядит очень недовольной. Кажется, ей совсем не хочется ехать...)" },
-      { "speaker": "Алиса", "text": "Почему мы вообще должны ехать? Там же будет так ску-у-учно!" }
-    ],
-    "choices": [
-      { "text": "Хватит ныть, каникулы же!", "next_scene": "scene_2" },
-      { "text": "Да ладно, будет весело! (Наверное...)", "next_scene": "scene_3" },
-      { "text": "Понимаю... Мне тоже не особо хочется.", "next_scene": "scene_4" }
-    ]
-  }
+  "id": "scene_1",
+  "background": "backgrounds/bg_alice_room.png",
+  "characters": [
+    { "name": "Алиса", "sprite": "sprites/alice_neutral.png", "position": "left" }
+  ],
+  "dialogue": [
+    { "speaker": "Алиса", "text": "Наконец. Я уже начала представлять, как уезжаю без тебя." },
+    { "speaker": "Алиса", "text": "Поезд через двадцать минут, ты в курсе вообще?" },
+    { "command": "change_sprite", "character": "Алиса", "sprite": "sad.png" },
+    { "speaker": "", "text": "(Она раздражена. Не потому что опаздываем — просто бесится.)" },
+    { "speaker": "Алиса", "text": "Зачем вообще туда ехать? Там даже вайфая нет, только комары и тоска по заброшке." }
+  ],
+  "choices": [
+    { "text": "Хватит ныть, ты будто на каторгу едешь.", "next_scene": "scene_2" },
+    { "text": "Забей, вдруг там будет весело. (Ага, щас...)", "next_scene": "scene_3" },
+    { "text": "Мне тоже не хочется. Но выбора нет.", "next_scene": "scene_4" }
+  ]
+}

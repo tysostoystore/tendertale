@@ -1,16 +1,15 @@
 {
-    "id": "train_platform",
-    "background": "backgrounds/bg_station.png",
-    "characters": [
-    ],
-    "dialogue": [
-      { "speaker": "", "text": "(Вот и все. Мы ушли из душной комнаты и стоим на станции.)" },
-      { "speaker": "", "text": "(Солнце печет, рюкзаки тяжелые. Писать хочется...)" },
-      { "speaker": "", "text": "(Впереди несколько часов скуки в дороге, а потом - несколько недель скуки на месте.)" },
-       { "speaker": "", "text": "(Может, я возьму наушники и попробую отключиться от реальности. Или поговорю с Алисой?)" }
-    ],
-    "choices": [
-      { "text": "Надеть наушники", "next_scene": "station_arrival_train_headphones" },
-      { "text": "Поговорить с Алисой", "next_scene": "station_arrival_train_talk" }
-    ]
-  }
+  "id": "train_platform",
+  "background": "backgrounds/bg_station.png",
+  "characters": [],
+  "dialogue": [
+    { "speaker": "", "text": "(Ну вот. Мы вывалились из пыльной коробки и теперь стоим под солнцем, как две дуры.)" },
+    { "speaker": "", "text": "(Жарко, в рюкзаке блокнот и бананы, всё впивается в плечо. Аж мутит.)" },
+    { "speaker": "", "text": "(Впереди поезд, потом деревня, потом дни, где ты просто ешь и дышишь, потому что больше нечего делать.)" },
+    { "speaker": "", "text": "(Надеть наушники и погрузиться в музыку — звучит круто. Или поговорить с Алисой, пока она не в телефоне?)" }
+  ],
+  "choices": [
+    { "text": "Надеть наушники", "next_scene": "station_arrival_train_headphones" },
+    { "text": "Поговорить с Алисой", "next_scene": "station_arrival_train_talk" }
+  ]
+}

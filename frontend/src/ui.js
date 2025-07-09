@@ -132,7 +132,7 @@ export async function renderScene(scene, pushToHistory = true, { sceneHistory, h
   // Set the background image using inline style (now after innerHTML is set)
   if (scene.background) {
     console.log(`Setting background image to: url(${scene.background})`);
-    app.style.backgroundImage = `url(${scene.background})`;
+    app.style.backgroundImage = `url(/assets/${scene.background})`;
     app.style.backgroundSize = 'cover'; // Optional: make the background cover the entire container
     app.style.backgroundPosition = 'center'; // Optional: center the background image
     app.style.backgroundRepeat = 'no-repeat'; // Optional: prevent tiling
