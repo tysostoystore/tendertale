@@ -1,16 +1,11 @@
 {
     "id": "dacha_arrival",
-    "background": "bg_dacha_exterior.png",
+    "background": "bg_dacha_station.png",
     "characters": [
       {
         "name": "Алиса",
         "sprite": "sprites/alice_neutral.png",
         "position": "left"
-      },
-      {
-        "name": "Эмили",
-        "sprite": "emily_neutral.png",
-        "position": "right"
       }
     ],
     "dialogue": [

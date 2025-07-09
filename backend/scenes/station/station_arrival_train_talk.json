@@ -1,16 +1,11 @@
 {
     "id": "station_arrival_train_talk",
-    "background": "backgrounds/bg_station_arrival.png",
+    "background": "backgrounds/bg_station.png",
     "characters": [
       {
         "name": "Алиса",
-        "sprite": "alice_neutral.png",
-        "position": "left"
-      },
-      {
-        "name": "Я",
-        "sprite": "emily_neutral.png",
-        "position": "right"
+        "sprite": "sprites/alice_neutral.png",
+        "position": "center"
       }
     ],
     "dialogue": [
@@ -49,8 +44,8 @@
     ],
     "choices": [
       {
-        "text": "Продолжить поездку",
-        "next_scene": "train_journey"
+        "text": "А вот и поезд..",
+        "next_scene": "station_arrival_train_talk_interior"
       }
     ]
   }

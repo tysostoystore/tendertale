@@ -1,0 +1,35 @@
+{
+    "id": "station_arrival_train_talk_interior",
+    "background": "backgrounds/bg_station_arrival.png",
+    "characters": [
+      {
+        "name": "Алиса",
+        "sprite": "sprites/alice_neutral.png",
+        "position": "center"
+      }
+    ],
+    "dialogue": [
+      {
+        "speaker": "",
+        "text": "(Поезд остановился. Двери открыты, и мы видим пустой вагон.)"
+      },
+      {
+        "speaker": "",
+        "text": "(Алиса всё ещё недовольна после нашего разговора на станции.)"
+      },
+      {
+        "speaker": "",
+        "text": "(Она первая подходит к дверям. Я следую за ней.)"
+      },
+      {
+        "speaker": "",
+        "text": "(Солнечный свет пробивается сквозь окна вагона. Там прохладно и уютно.)"
+      }
+    ],
+    "choices": [
+      {
+        "text": "Войти в поезд",
+        "next_scene": "train_interior_entry"
+      }
+    ]
+  } 

@@ -1,16 +1,11 @@
 {
     "id": "train_journey",
-    "background": "bg_train_interior.png",
+    "background": "backgrounds/bg_train_interior.png",
     "characters": [
       {
         "name": "Алиса",
-        "sprite": "alice_neutral.png",
+        "sprite": "sprites/alice_neutral.png",
         "position": "left"
-      },
-      {
-        "name": "Эмили",
-        "sprite": "emily_happy.png",
-        "position": "right"
       }
     ],
     "dialogue": [
