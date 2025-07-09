@@ -266,7 +266,7 @@ export async function renderScene(scene, pushToHistory = true, { sceneHistory, h
 
     let fullDialogueLine = ''; // Defined here to be accessible within the loop
     let charIndex = 0; // Defined here to be accessible within the loop
-    const typingSpeed = 50; // Milliseconds per character (increased)
+    const typingSpeed = 25; // Milliseconds per character (ускорено)
     const scrambleEffectDuration = 10; // ms per scramble char (increased)
     const scrambleIterations = 3; // How many random chars to show before the real one
 
@@ -295,102 +295,52 @@ export async function renderScene(scene, pushToHistory = true, { sceneHistory, h
                 const color = characterColors[line.speaker] || '#fff';
                 speakerHtml = `<strong style="color: ${color}">${line.speaker}:</strong> `;
             }
-            fullDialogueLine = speakerHtml + line.text;
+            // Вставляем имя сразу, до анимации текста
+            dialogueTextElement.innerHTML = speakerHtml;
+            fullDialogueLine = line.text; // Только текст реплики анимируется
             charIndex = 0; // Reset for each new line
-            dialogueTextElement.innerHTML = ''; // Clear content for the new line
 
-            let resolveLine; // This will be the resolver for the Promise to wait for click
-            let currentScrambleInterval = null; // To store setInterval ID for clearing
-            let currentTypingTimeout = null; // To store setTimeout ID for clearing
-            let completedTypingAndResolved = false; // New flag to prevent double resolution
+            let resolveLine;
+            let currentTypingTimeout = null;
+            let completedTypingAndResolved = false;
 
-            // Unified function to finish typing and resolve the line's promise
             const finishTyping = () => {
-                if (completedTypingAndResolved) return; // Prevent double resolve
-                completedTypingAndResolved = true; // Mark as resolved
-
-                dialogueTextElement.innerHTML = fullDialogueLine; // Ensure full text is displayed
-
-                // Clear any active timers to prevent further execution
-                if (currentScrambleInterval) {
-                    clearInterval(currentScrambleInterval);
-                    currentScrambleInterval = null;
-                }
+                if (completedTypingAndResolved) return;
+                completedTypingAndResolved = true;
+                // Показываем имя + всю реплику
+                dialogueTextElement.innerHTML = speakerHtml + fullDialogueLine;
                 if (currentTypingTimeout) {
                     clearTimeout(currentTypingTimeout);
                     currentTypingTimeout = null;
                 }
-
-                setIsTyping(false); // No longer typing
-                setSkipTypingAnimation(false); // Reset skip flag
-                resolveLine(); // Resolve the promise for this line
+                setIsTyping(false);
+                setSkipTypingAnimation(false);
+                resolveLine();
             };
 
             const typeCharacter = () => {
-                // If typing is skipped, immediately display full text and resolve
                 if (getSkipTypingAnimation()) {
-                    finishTyping(); // Call unified finish function
-                    return; // Exit the function, no more character processing
+                    finishTyping();
+                    return;
                 }
-
                 if (charIndex < fullDialogueLine.length) {
                     const char = fullDialogueLine.charAt(charIndex);
-
-                    // Handle HTML tags directly
-                    if (char === '<') {
-                        const endIndex = fullDialogueLine.indexOf('>', charIndex);
-                        if (endIndex !== -1) {
-                            const tag = fullDialogueLine.substring(charIndex, endIndex + 1);
-                            // Use a temporary div to parse the tag string into actual DOM nodes
-                            const tempDiv = document.createElement('div');
-                            tempDiv.innerHTML = tag;
-                            while (tempDiv.firstChild) {
-                                dialogueTextElement.appendChild(tempDiv.firstChild);
-                            }
-                            charIndex = endIndex + 1; // Move index past the tag
-                            // Continue typing immediately after tag, without scramble
-                            currentTypingTimeout = setTimeout(typeCharacter, 0);
-                            return; // Exit this call to prevent further processing
-                        } else {
-                            // Malformed tag, treat '<' as a literal character
-                            // Fall through to regular character handling
-                        }
-                    }
-
-                    setIsTyping(true); // Indicate that typing is in progress
-
-                    let iterations = 0;
+                    setIsTyping(true);
+                    // Создаём span для символа и анимируем его
                     const currentCharSpan = document.createElement('span');
+                    currentCharSpan.textContent = char;
+                    currentCharSpan.classList.add('fade-in-char');
                     dialogueTextElement.appendChild(currentCharSpan);
-
-                    currentScrambleInterval = setInterval(() => {
-                        // Re-check skip animation inside interval, in case it was set while interval was running
-                        if (getSkipTypingAnimation()) {
-                            finishTyping(); // Call unified finish function
-                            return; // Exit this interval callback
-                        }
-
-                        if (iterations < scrambleIterations) {
-                            currentCharSpan.textContent = getRandomChar();
-                            iterations++;
-                        } else {
-                            clearInterval(currentScrambleInterval);
-                            currentScrambleInterval = null; // Clear the interval ID after use
-                            currentCharSpan.textContent = char; // Set the real character
-                            charIndex++;
-                            if (!getSkipTypingAnimation() && charIndex < fullDialogueLine.length) {
-                                currentTypingTimeout = setTimeout(typeCharacter, typingSpeed); // Schedule next character
-                            } else {
-                                finishTyping(); // Call unified finish function
-                            }
-                        }
-                    }, scrambleEffectDuration);
+                    charIndex++;
+                    if (!getSkipTypingAnimation() && charIndex < fullDialogueLine.length) {
+                        currentTypingTimeout = setTimeout(typeCharacter, typingSpeed);
+                    } else {
+                        finishTyping();
+                    }
                 } else {
-                    // If we've reached the end of the line (or started with an empty line)
-                    finishTyping(); // Call unified finish function
+                    finishTyping();
                 }
             };
-
             await new Promise(resolve => { resolveLine = resolve; typeCharacter(); });
         }
         await waitForClick(); // Wait for click after each dialogue line
