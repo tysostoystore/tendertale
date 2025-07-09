@@ -1,6 +1,6 @@
 {
     "id": "station_arrival_train_talk",
-    "background": "assets/bg_station_arrival.png",
+    "background": "backgrounds/bg_station_arrival.png",
     "characters": [
         {
             "name": "Алиса",

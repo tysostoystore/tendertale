@@ -1,6 +1,6 @@
 {
     "id": "journey_4",
-    "background": "assets/bg_street_4.png",
+    "background": "backgrounds/bg_street_4.png",
     "characters": [],
     "dialogue": [
       { "speaker": "", "text": "(Она вон совсем уныла. Ее даже идея про мальчиков не развеселила.)" },

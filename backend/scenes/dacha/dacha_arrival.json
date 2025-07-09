@@ -4,7 +4,7 @@
     "characters": [
         {
             "name": "Алиса",
-            "sprite": "alice_happy.png",
+            "sprite": "sprites/alice_neutral.png",
             "position": "left"
         },
         {

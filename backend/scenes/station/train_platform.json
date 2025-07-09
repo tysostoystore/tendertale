@@ -1,6 +1,6 @@
 {
-    "id": "scene_5",
-    "background": "assets/bg_station.png",
+    "id": "train_platform",
+    "background": "backgrounds/bg_station.png",
     "characters": [
     ],
     "dialogue": [

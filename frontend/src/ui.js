@@ -270,6 +270,12 @@ export async function renderScene(scene, pushToHistory = true, { sceneHistory, h
     const scrambleEffectDuration = 10; // ms per scramble char (increased)
     const scrambleIterations = 3; // How many random chars to show before the real one
 
+    // Цвета персонажей (легко расширять)
+    const characterColors = {
+        'Алиса': '#FFD700', // жёлтый
+        // 'Май': '#2196F3', // пример для будущего
+    };
+
     for (const line of scene.dialogue) {
         // Check if the current line is a command
         if (line.command === 'change_sprite') {
@@ -283,7 +289,13 @@ export async function renderScene(scene, pushToHistory = true, { sceneHistory, h
                 console.warn(`Character element not found for: ${line.character}`);
             }
         } else if (line.text) {
-            fullDialogueLine = line.speaker ? `<strong>${line.speaker}:</strong> ${line.text}` : line.text;
+            // Цветное имя персонажа
+            let speakerHtml = '';
+            if (line.speaker) {
+                const color = characterColors[line.speaker] || '#fff';
+                speakerHtml = `<strong style="color: ${color}">${line.speaker}:</strong> `;
+            }
+            fullDialogueLine = speakerHtml + line.text;
             charIndex = 0; // Reset for each new line
             dialogueTextElement.innerHTML = ''; // Clear content for the new line
 

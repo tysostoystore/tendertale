@@ -1,6 +1,6 @@
 {
     "id": "journey_2",
-    "background": "assets/bg_street_2.png",
+    "background": "backgrounds/bg_street_2.png",
     "characters": [],
     "dialogue": [
       { "speaker": "", "text": "(Странно как-то. Я вроде и не против побыть одна, но...)" },

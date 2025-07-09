@@ -1,8 +1,8 @@
 {
     "id": "scene_4",
-    "background": "assets/bg_alice_room.png",
+    "background": "backgrounds/bg_alice_room.png",
     "characters": [
-      { "name": "Алиса", "sprite": "alice_sad.png", "position": "left" }
+      { "name": "Алиса", "sprite": "sprites/alice_neutral.png", "position": "left" }
     ],
     "dialogue": [
       { "speaker": "Я", "text": "Да, я знаю... Мне тоже не прыгается от радости." },

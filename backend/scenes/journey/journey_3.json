@@ -1,6 +1,6 @@
 {
     "id": "journey_3",
-    "background": "assets/bg_street_3.png",
+    "background": "backgrounds/bg_street_3.png",
     "characters": [],
     "dialogue": [
       { "speaker": "", "text": "(Мама с папой, конечно, считают, что дача - это лучшее место для лета.)" },

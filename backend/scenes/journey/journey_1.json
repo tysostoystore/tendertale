@@ -1,6 +1,6 @@
 {
   "id": "journey_1",
-  "background": "assets/bg_street_1.png",
+  "background": "backgrounds/bg_street_1.png",
   "characters": [],
   "dialogue": [
     { "speaker": "", "text": "(Ну вот, выходим. Жарко... Вокзал не очень далеко.)" },
