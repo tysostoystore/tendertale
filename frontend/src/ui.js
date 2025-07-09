@@ -37,6 +37,8 @@ export function displayMessage(message, type = 'info', duration = 3000) {
 }
 
 export async function renderScene(scene, pushToHistory = true, { sceneHistory, handleChoiceClick, handlePreviousClick, handleNewGameClick, handleSaveGameClick, handleLoadGameClick, handleDeleteGameClick, getIsTyping, setIsTyping, getSkipTypingAnimation, setSkipTypingAnimation }) {
+    console.log(`Rendering scene: ${scene.id}`);
+    console.log(`Scene dialogue length: ${scene.dialogue.length}`);
   if (!scene) {
     return; // Don't render if scene data is null
   }
@@ -277,6 +279,8 @@ export async function renderScene(scene, pushToHistory = true, { sceneHistory, h
     };
 
     for (const line of scene.dialogue) {
+        console.log(`Processing line:`, line);
+        
         // Check if the current line is a command
         if (line.command === 'change_sprite') {
             console.log(`Command: Change sprite for ${line.character} to ${line.sprite}`);
