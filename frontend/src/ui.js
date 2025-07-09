@@ -39,6 +39,7 @@ export function displayMessage(message, type = 'info', duration = 3000) {
 export async function renderScene(scene, pushToHistory = true, { sceneHistory, handleChoiceClick, handlePreviousClick, handleNewGameClick, handleSaveGameClick, handleLoadGameClick, handleDeleteGameClick, getIsTyping, setIsTyping, getSkipTypingAnimation, setSkipTypingAnimation }) {
     console.log(`Rendering scene: ${scene.id}`);
     console.log(`Scene dialogue length: ${scene.dialogue.length}`);
+    console.log(`Full scene dialogue:`, JSON.stringify(scene.dialogue, null, 2));
   if (!scene) {
     return; // Don't render if scene data is null
   }
