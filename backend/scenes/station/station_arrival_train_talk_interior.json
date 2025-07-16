@@ -2,11 +2,7 @@
     "id": "station_arrival_train_talk_interior",
     "background": "backgrounds/bg_station_arrival.png",
     "characters": [
-      {
-        "name": "Алиса",
-        "sprite": "sprites/alice_neutral.png",
-        "position": "center"
-      }
+     
     ],
     "dialogue": [
       {
