@@ -2,11 +2,6 @@
     "id": "dacha_arrival_with_men",
     "background": "backgrounds/bg_dacha_station.png",
     "characters": [
-      {
-        "name": "Алиса",
-        "sprite": "sprites/alice_neutral.png",
-        "position": "right"
-      }
     ],
     "dialogue": [
       {
@@ -26,7 +21,7 @@
         "character": {
           "name": "Мужчины",
           "sprite": "sprites/men.png",
-          "position": "left"
+          "position": "center"
         }
       },
       {

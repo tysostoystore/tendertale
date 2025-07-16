@@ -2,11 +2,6 @@
     "id": "train_interior_entry",
     "background": "backgrounds/bg_train_interior.png",
     "characters": [
-      {
-        "name": "Алиса",
-        "sprite": "sprites/alice_neutral.png",
-        "position": "center"
-      }
     ],
     "dialogue": [
       {
