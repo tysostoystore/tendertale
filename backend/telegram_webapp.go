@@ -73,7 +73,7 @@ func (tw *TelegramWebApp) sendWelcomePhotoWithButton(chatID int64) {
 	// Use a public URL for the image (recommended for Railway)
 	photoURL := "https://tendertale.vercel.app/assets//logo.png" // Update if your path is different
 
-	caption := `🎮 Добро пожаловать в TenderTale Visual Novel!
+	caption := `🎮 Добро пожаловать в Tendertale!
 
 Это Telegram Web App — мини-приложение, которое работает прямо в Telegram.
 
