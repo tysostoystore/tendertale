@@ -312,7 +312,6 @@ button:focus-visible {
     opacity: 0; /* Start invisible */
     
     /* Debug: Add border to see if element exists */
-    border: 2px solid red;
 }
 
 .character-sprite.visible {
