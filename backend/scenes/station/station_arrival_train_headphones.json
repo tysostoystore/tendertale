@@ -1,13 +1,7 @@
 {
     "id": "station_arrival_train_headphones",
     "background": "backgrounds/bg_station_arrival.png",
-    "characters": [
-      {
-        "name": "Алиса",
-        "sprite": "sprites/alice_neutral.png",
-        "position": "left"
-      }
-    ],
+    "characters": [],
     "dialogue": [
       {
         "speaker": "",

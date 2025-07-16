@@ -29,7 +29,7 @@
         "character": {
           "name": "Мужчины",
           "sprite": "sprites/men.png",
-          "position": "center"
+          "position": "left"
         }
       },
       {

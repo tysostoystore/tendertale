@@ -5,7 +5,7 @@
       {
         "name": "Алиса",
         "sprite": "sprites/alice_neutral.png",
-        "position": "center"
+        "position": "left"
       }
     ],
     "dialogue": [
