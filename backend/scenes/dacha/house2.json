@@ -1,0 +1,12 @@
+{
+    "id": "house2",
+    "background": "backgrounds/bg_dacha_inside.png",
+    "characters": [],
+    "dialogue": [
+      { "speaker": "", "text": "(Открываю дверь. Дом встретил нас так, будто мы никуда и не уезжали.)" }
+    ],
+    "choices": [
+      { "text": "Подняться на чердак", "next_scene": "house3" }
+    ]
+  }
+  
